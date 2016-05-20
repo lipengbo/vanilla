@@ -210,7 +210,7 @@ class CategoriesController extends VanillaController {
                 ->setJoinUserCategory(true)
                 ->getChildTree(
                     $CategoryIdentifier,
-                    CategoryModel::instance()->getMaxDisplayDepth() ?: 10
+                    ['depth' => CategoryModel::instance()->getMaxDisplayDepth() ?: 10]
                 );
             $this->setData('CategoryTree', $categoryTree);
 
@@ -389,7 +389,7 @@ class CategoriesController extends VanillaController {
             ->setJoinUserCategory(true)
             ->getChildTree(
                 $Category ?: null,
-                $this->CategoryModel->getMaxDisplayDepth() ?: 10
+                ['depth' => $this->CategoryModel->getMaxDisplayDepth() ?: 10]
             );
         if ($this->CategoryModel->Watching) {
             $categoryTree = $this->CategoryModel->filterFollowing($categoryTree);
