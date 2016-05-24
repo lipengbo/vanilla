@@ -262,7 +262,7 @@ linters:
     exclude: legacy/**
 
   UnnecessaryParentReference:
-    enabled: true
+    enabled: false
     exclude: legacy/**
 
   UrlFormat:
