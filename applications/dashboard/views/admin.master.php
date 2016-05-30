@@ -32,9 +32,13 @@
         <div id="Panel">
             <?php
             $this->renderAsset('Panel');
+            $this->renderAsset('Help');
             ?>
         </div>
         <div id="Content"><?php $this->renderAsset('Content'); ?></div>
+        <?php
+        $this->renderAsset('Help');
+        ?>
     </div>
     <div id="Foot">
         <?php

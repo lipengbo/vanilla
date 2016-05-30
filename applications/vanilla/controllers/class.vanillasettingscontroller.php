@@ -283,13 +283,13 @@ class VanillaSettingsController extends Gdn_Controller {
      * @since 2.0.0
      * @access public
      */
-    public function addCategory() {
+    public function addCategory($parent = '') {
         // Check permission
         $this->permission(['Garden.Community.Manage', 'Garden.Settings.Manage'], false);
 
         // Set up head
         $this->addJsFile('jquery.alphanumeric.js');
-        $this->addJsFile('categories.js');
+        $this->addJsFile('manage-categories.js');
         $this->addJsFile('jquery.gardencheckboxgrid.js');
         $this->title(t('Add Category'));
         $this->addSideMenu('vanilla/settings/managecategories');
@@ -396,7 +396,7 @@ class VanillaSettingsController extends Gdn_Controller {
         $this->permission(['Garden.Community.Manage', 'Garden.Settings.Manage'], false);
 
         // Set up head
-        $this->addJsFile('categories.js');
+        $this->addJsFile('manage-categories.js');
         $this->title(t('Delete Category'));
         $this->addSideMenu('vanilla/settings/managecategories');
 
@@ -560,7 +560,7 @@ class VanillaSettingsController extends Gdn_Controller {
 
         // Set up head
         $this->addJsFile('jquery.alphanumeric.js');
-        $this->addJsFile('categories.js');
+        $this->addJsFile('manage-categories.js');
         $this->addJsFile('jquery.gardencheckboxgrid.js');
         $this->title(t('Edit Category'));
 
@@ -632,21 +632,21 @@ class VanillaSettingsController extends Gdn_Controller {
     /**
      * Manage the category hierarchy.
      *
-     * @param string $category The URL slug of a parent category if looking at a sub tree.
+     * @param string $parent The URL slug of a parent category if looking at a sub tree.
      */
-    public function categories($category = '') {
+    public function categories($parent = '') {
         $this->permission(['Garden.Community.Manage', 'Garden.Settings.Manage'], false);
         $this->addSideMenu('vanilla/settings/categories');
 
         // Make sure we are reading the categories from the database only.
         $collection = $this->CategoryModel->createCollection(Gdn::sql(), new Gdn_Dirtycache());
 
-        if (!empty($category)) {
-            $categoryRow = $collection->get((string)$category);
+        if (!empty($parent)) {
+            $categoryRow = $collection->get((string)$parent);
             if (empty($categoryRow)) {
                 throw notFoundException('Category');
             }
-            $this->setData('Category', $category);
+            $this->setData('Category', $parent);
             $parentID = $categoryRow['CategoryID'];
         } else {
             $parentID = -1;
@@ -760,6 +760,32 @@ class VanillaSettingsController extends Gdn_Controller {
         }
 
         return $this->render('Blank', 'Utility', 'Dashboard');
+    }
+
+    /**
+     * Set the display as property of a category.
+     *
+     * @throws Gdn_UserException Throws an exception of the posted data is incorrect.
+     */
+    public function categoryDisplayAs() {
+        $this->permission(['Garden.Community.Manage', 'Garden.Settings.Manage'], false);
+        
+        if ($this->Request->isAuthenticatedPostBack(true)) {
+            $categoryID = $this->Request->post('CategoryID');
+            $displayAs = $this->Request->post('DisplayAs');
+
+            if (!$categoryID || !$displayAs) {
+                throw new Gdn_UserException("CategoryID and DisplayAs are required", 400);
+            }
+
+            $this->CategoryModel->setField($categoryID, 'DisplayAs', $displayAs);
+            $category = CategoryModel::categories($categoryID);
+            $this->setData('CategoryID', $category['CategoryID']);
+            $this->setData('DisplayAs', $category['DisplayAs']);
+        } else {
+            throw new Gdn_UserException(Gdn::request()->requestMethod().' not allowed.', 405);
+        }
+        $this->render();
     }
 
     /**

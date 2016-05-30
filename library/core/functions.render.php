@@ -86,8 +86,12 @@ if (!function_exists('popin')) {
  */
 if (!function_exists('icon')) {
     function icon($icon) {
-        $icon = strtolower($icon);
-        return ' <span class="icon icon-'.$icon.'"></span> ';
+        if (substr($icon, 0, 1) === '<') {
+            return $icon;
+        } else {
+            $icon = strtolower($icon);
+            return ' <span class="icon icon-'.$icon.'"></span> ';
+        }
     }
 }
 
