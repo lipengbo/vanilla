@@ -2,6 +2,7 @@
 
 echo $this->Form->open();
 echo $this->Form->errors();
+echo $this->Form->hidden('ParentCategoryID');
 ?>
 <h1><?php echo t('Add Category'); ?></h1>
 <div class="Info"><?php
