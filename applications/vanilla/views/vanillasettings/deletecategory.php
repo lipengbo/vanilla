@@ -1,10 +1,10 @@
-<?php if (!defined('APPLICATION')) exit();
-
+<?php if (!defined('APPLICATION')) exit(); ?>
+<h1><?php echo t('Delete Category'); ?></h1>
+<?php
 echo $this->Form->open();
 echo $this->Form->errors();
 if (is_object($this->OtherCategories)) {
     ?>
-    <h1><?php echo t('Delete Category'); ?></h1>
     <ul>
     <?php
     if ($this->OtherCategories->numRows() == 0) {
