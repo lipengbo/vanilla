@@ -86,8 +86,8 @@ function writeCategoryOptions($category) {
             'displayas.'.strtolower($displayAs),
             'js-displayas '.$cssClass,
             [],
-            false,
-            ['icon' => $icon, 'attributes' => ['data-displayas' => strtolower($displayAs)]]
+            ['icon' => $icon, 'attributes' => ['data-displayas' => strtolower($displayAs)]],
+            false
         );
     }
 

@@ -9771,6 +9771,15 @@ input[type="button"].btn-block {
   margin-left: 0;
 }
 
+.btn-icon:hover, .btn-edit:hover, .btn-delete:hover, .btn-ok:hover, .btn-settings:hover {
+  font: "0/0" a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+  text-decoration: none;
+}
+
 .btn-icon svg, .btn-edit svg, .btn-delete svg, .btn-ok svg, .btn-settings svg {
   display: block;
   height: 1.5rem;
@@ -9899,6 +9908,226 @@ input[type="button"].btn-block {
   z-index: 1005;
 }
 
+.dd {
+  color: #555a62;
+  position: relative;
+  fill: #555a62;
+  margin-top: 0.9375rem;
+  font-size: 13px;
+}
+
+.dd * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.dd-list {
+  position: relative;
+  padding-left: 0;
+  list-style-type: none;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  -webkit-padding-start: 0;
+}
+
+.dd-list li {
+  list-style: none;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.dd-list label {
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.dd-list .dd-list {
+  padding-left: 30px;
+}
+
+.dd-item,
+.dd-empty,
+.dd-placeholder {
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  min-height: 36px;
+}
+
+.dd-item > button {
+  border: 0;
+  background: none;
+  position: absolute;
+  top: 0;
+  left: 30px;
+  padding: 9.5px 6px;
+  cursor: pointer;
+}
+
+.dd-item > button:active, .dd-item > button:hover {
+  color: #0291db;
+  fill: #0291db;
+}
+
+.dd-item .options {
+  float: right;
+  fill: rgba(85, 90, 98, 0.6);
+  margin-top: -7px;
+  margin-right: -6px;
+}
+
+.dd-item .OptionsTitle {
+  display: inline-block;
+  padding-right: 2px;
+  line-height: 1;
+}
+
+.dd-item .Button-Options {
+  padding: 9.5px;
+}
+
+.dd-item .ToggleFlyout .Flyout {
+  top: 28.5px;
+}
+
+.dd-handle {
+  padding: 9.5px;
+  position: absolute;
+  margin: 0;
+  left: 0;
+  top: 0;
+  cursor: move;
+  cursor: -moz-grab;
+  cursor: grab;
+  line-height: 1;
+  fill: #ddd;
+}
+
+.dd-handle:hover {
+  fill: rgba(85, 90, 98, 0.6);
+}
+
+.dd-content {
+  display: block;
+  border: solid 1px #ddd;
+  background: #fdfdff;
+  border-radius: 2px;
+  padding: 6px 9px 6px 60px;
+  margin: 3px 0;
+  line-height: 22px;
+}
+
+.dd-dragel {
+  position: absolute;
+  pointer-events: none;
+  z-index: 9999;
+  margin-top: 0;
+  margin-left: 0;
+  opacity: .8;
+  cursor: -moz-grabbing;
+  cursor: grabbing;
+}
+
+.dd-dragel > .dd-item > .dd-handle {
+  fill: #555a62;
+}
+
+.dd-placeholder,
+.dd-empty {
+  margin: 3px 0;
+  padding: 0;
+  background: #f1faff;
+  border: 1px dashed #0291db;
+  min-height: 36px;
+  border-radius: 2px;
+  cursor: -moz-grabbing;
+  cursor: grabbing;
+}
+
+.SpFlyoutHandle,
+.DropHandle {
+  border-top-color: rgba(85, 90, 98, 0.6);
+}
+
+.icon, .btn-settings-border {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.icon-16 {
+  height: 16px;
+  width: 16px;
+}
+
+.bigcrumbs {
+  border-bottom: solid 1px #ddd;
+  fill: #555a62;
+  padding-left: 6px;
+}
+
+.bigcrumbs .crumb {
+  display: inline-block;
+  line-height: 24px;
+  padding: 6px 24px 6px 16px;
+  position: relative;
+  fill: #555a62;
+  color: #555a62;
+}
+
+.bigcrumbs .crumb:hover {
+  fill: #0291db;
+  color: #0291db;
+}
+
+.bigcrumbs .crumb:before, .bigcrumbs .crumb:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  right: -12px;
+  width: 0;
+  border: solid 12px transparent;
+  border-top-width: 19px;
+  border-bottom-width: 19px;
+  border-left-color: #ddd;
+}
+
+.bigcrumbs .crumb:after {
+  content: '';
+  border-left-color: #fff;
+  right: -11px;
+}
+
+.bigcrumbs .crumb:before {
+  content: '';
+}
+
+.bigcrumbs .crumb:first-child {
+  padding-left: 0;
+}
+
+.bigcrumbs .crumb:last-child:before, .bigcrumbs .crumb:last-child:after {
+  display: none;
+}
+
+.bigcrumbs .icon-root {
+  padding: 0 8px;
+  margin-bottom: 4px;
+}
+
+.heading-bar .actions {
+  float: right;
+  padding: 6px 18px 0 0;
+}
+
+.Trace {
+  display: none;
+}
+
 .user-block {
   display: -ms-flexbox;
   display: flex;
@@ -9915,7 +10144,7 @@ input[type="button"].btn-block {
   border-radius: 0.0625rem;
   overflow: hidden;
   background-color: #f4f4f5;
-  margin-right: 0.5625rem;
+  margin-right: 0.5rem;
 }
 
 .user-block .user-image-wrap::after {
