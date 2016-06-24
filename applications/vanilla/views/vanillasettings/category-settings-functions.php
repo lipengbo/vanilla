@@ -110,7 +110,7 @@ function writeCategoryOptions($category) {
 }
 
 function writeCategoryBreadcrumbs($ancestors) {
-    echo '<div class="bigcrumbs">';
+    echo '<div class="bigcrumbs full-border">';
 
     writeCategoryBreadcrumb(
         t('Home'),

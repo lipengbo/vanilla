@@ -78,7 +78,7 @@ $spacers: (
     y:   ($spacer-y * 3)
   )
 ) !default;
-$border-width:               (1 / 16 * 1rem);
+$border-width:               1px !default;
 
 
 // Body
@@ -280,6 +280,7 @@ $btn-border-radius:              $border-radius !default;
 $btn-border-radius-lg:           $border-radius-lg !default;
 $btn-border-radius-sm:           $border-radius-sm !default;
 
+
 // Forms
 
 $input-padding-x:                .75rem !default;
@@ -401,6 +402,7 @@ $nav-tabs-justified-active-link-border-color:     $body-bg !default;
 $nav-pills-border-radius:                   $border-radius !default;
 $nav-pills-active-link-hover-bg:            $component-active-bg !default;
 $nav-pills-active-link-hover-color:         $component-active-color !default;
+
 
 // Pagination
 
