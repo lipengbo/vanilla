@@ -20,6 +20,7 @@
 
 .dd {
   color: $body-color;
+  padding: 18px;
   position: relative;
   fill: $body-color;
   margin-top: $grid-gutter-width / 2;
@@ -213,6 +214,7 @@
   .icon-root {
     padding: 0 8px;
     margin-bottom: 4px;
+}
   }
 
 .heading-bar {

@@ -9904,6 +9904,7 @@ input[type="button"].btn-block {
   position: relative;
   fill: #555a62;
   margin-top: 1.125rem;
+  font-size: 13px;
 }
 
 .dd * {
@@ -11475,6 +11476,10 @@ select::-ms-expand {
 .HomeOptions .Sprite,
 .HomeOptions .addon-image-wrap .Sprite {
   width: 5.25rem;
+}
+
+svg.icon, svg.btn-settings-border {
+  display: block;
 }
 
 .media {
