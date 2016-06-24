@@ -10333,8 +10333,8 @@ input[type="button"].btn-block {
 }
 
 .MenuItems hr {
-  border: none;
-  border-top: 1px dotted #e5e5e5;
+  border-color: #e5e5e5;
+  border-top-style: dotted;
   margin: 6px 0;
 }
 
@@ -11476,10 +11476,6 @@ select::-ms-expand {
 .HomeOptions .Sprite,
 .HomeOptions .addon-image-wrap .Sprite {
   width: 5.25rem;
-}
-
-svg.icon, svg.btn-settings-border {
-  display: block;
 }
 
 .media {
